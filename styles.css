@@ -1,0 +1,157 @@
+* { /*reseta tudo que vem auto no site*/
+    margin: 0; /*margens*/
+    padding: 0; /*preenchimento interno das caixas*/
+    box-sizing: border-box; /*muda a maneira de contagem: n somando o width(largura) com padding(preenchimento)*/
+}
+
+ul {
+    list-style: none; /*retirar os pontinhos da lista*/
+}
+
+body {
+    background-image: url(./assets/bg.jpg); /*colocar imagem*/
+    background-position: top center; /*posicionar imagem de fundo*/
+    background-size: 100% auto; /*100% do tamanho da tela*/
+    background-repeat: no-repeat; /*n repetir a imagem de fundo*/
+    background-color: #121214; /*inserir cor onde ficou sem imagem*/
+}
+
+body * {
+    font-family: 'inter', sans-serif; /*fonte inserida no html. Serif é a linha das letras*/
+    line-height: 160%; /*altura da linha inserida p todos, determinada por mim*/
+}
+
+header {
+   /*text-align: center; tudo q for identificado como texto eu posso alinhar no centro(center), direita(rigth) ou esquerda(left)*/
+    padding-top: 32px;
+    height: calc(120px + 32px); /*calc é usado para que a formula faça o calculo por vc*/
+}
+
+header div {
+    width: 120px; /*largura*/
+    margin: auto; /*para alinhar a imagem no meio já que div n são propriedades de texto, logo o text align n serve mais*/
+    background-image: linear-gradient(90deg, #C91842 0%, #5CC2E2 100%);/*usado quando precisa de multiplas cores*/
+    border-radius: 50%;
+    display: flex;/*por ter somente um elemento, ele se organiza e fica no meio*/
+    padding: 4px; /*preenchimento da caixa*/
+    transition: transform .3s; /*recebe a transform e os seg significa quanto tempo vai durar*/
+}
+
+header div:hover {
+    transform: scale(1.1); /*faz com que a foto pulse quando passar o mouse por cima*/
+
+}
+
+header div img {
+    width: 100%;/*largura de 100% em relação a div acima*/
+    border-radius: 50%;/*arredondamento de borda*/
+}
+
+main {
+    max-width: 580px; /* largura maxima da principal*/
+    width: 90%; /*quando a tela for menor que o px escolhido, utiliza para mante-lá na tela*/
+    margin: 32px auto; /*para preencher as margens automaticamente*/
+    display: grid; /*desbloqueia o gap e mantém as ul uma embaixo da outra*/
+    gap: 24px; /*espaço entre as sessões*/
+    margin-top: 32px; /*separar da foto principal*/
+}
+
+section {
+    color: white; /*cor de todas as letras*/
+    background-image: linear-gradient(90deg, #C91842 0%, #5CC2E2 100%); /*usado quando precisa de multiplas cores*/
+    padding: 5px;
+    border-radius: 15px;
+}
+
+section div {
+    background-color: #262629; /*cor do fundo*/
+    padding: 32px; /*preenchimento interno das caixas*/
+    padding-top: 24px; /*preenchimento apenas do topo das caixas*/
+}
+
+section h2 {
+    font-weight: 400; /*peso da fonte*/
+    font-size: 1000; /*tamanho da fonte*/
+    letter-spacing: -0.18px; /*espaço entre as letras*/
+}
+
+section p {
+    letter-spacing: -0.18px; /*espaço entre as letras*/
+    color: #C1C1C1; /*cor*/
+}
+
+section ul {
+    display: flex; /*tem relação cm a visualização das caixas. Colocam uma ao lado da outras, mas só caixas q estejam dentro de outras caixas*/
+    flex-wrap: wrap; /*caso chegue no limite da caixa e n couber mais ao lado, ele direciona para baixo*/
+    gap: 16px;
+    margin-top: 24px; /*espaço para o topo(linha acima)*/
+}
+
+section ul li {
+    transition: transform .3s;
+
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.player-list img {
+    height: 180px;
+    width: 110px;
+    border-radius: 16px;
+    border: 1px solid #555555;
+}
+
+.titles-list img {
+    height: 180px;
+    width: 110px;
+    border-radius: 16px;
+    border: 1px solid #555555;
+}
+
+/*animation*/
+
+header div {
+    animation: fromTop 1s .5s backwards; /*tempo da animação + delay. Backwards serve para puxar as propriedades de todo keyframes*/
+}
+
+@keyframes fromTop { /*de cima*/
+    from { /*de*/
+        opacity: 0; /*sumir a imagem*/
+        transform: translateY(-30); /*eixo que vem de cima para baixo*/
+    }
+
+    to { /*para*/
+        opacity: 1; /*aparecer a imagem*/
+        transform: translateY(0); /*eixo que vem de cima para baixo*/
+    }
+}
+
+main section {
+    animation: fromBottom 1s .5s backwards; /*tempo da animação + delay. Backwards serve para puxar as propriedades de todo keyframes*/
+}
+
+@keyframes fromBottom { /*de baixo*/
+    from {
+        opacity: 0; /*sumir a imagem*/
+        transform: translateY(30); /*eixo que vem de cima para baixo*/
+    }
+
+    to {
+        opacity: 1; /*aparecer a imagem*/
+        transform: translateY(0); /*eixo que vem de cima para baixo*/
+    }
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .8s;
+}
+
+main section:nth-child(3) {
+    animation-delay: 1.2s;
+}
